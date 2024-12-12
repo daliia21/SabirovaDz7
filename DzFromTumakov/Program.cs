@@ -67,7 +67,7 @@ namespace DzFromTumakov
 
             Console.WriteLine("Упражнение 8.3");
             Console.Write("Введите имя файла: ");
-            string inputFileName = Console.ReadLine();
+            string inputFileName = Console.ReadLine()!;
             string inputFilePath = Path.Combine(Directory.GetCurrentDirectory(), inputFileName);
 
 
@@ -240,11 +240,11 @@ namespace DzFromTumakov
         }
         static void Main()
         {
-            //Task1();
-            //Task2();
-            //Task3();
-            //Task4();
-            //Task5();
+            Task1();
+            Task2();
+            Task3();
+            Task4();
+            Task5();
             Task6();
         }
     }
