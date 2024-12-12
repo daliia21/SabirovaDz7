@@ -68,6 +68,8 @@ namespace DzFromTumakov
             Console.WriteLine("Упражнение 8.3");
             Console.Write("Введите имя файла: ");
             string inputFileName = Console.ReadLine();
+            string inputFilePath = Path.Combine(Directory.GetCurrentDirectory(), inputFileName);
+
 
             if (!File.Exists(inputFileName))
             {
@@ -75,13 +77,13 @@ namespace DzFromTumakov
                 return;
             }
 
-
+            FileCheck(inputFileName);
         }
 
         static void FileCheck(string inputFileName)
         
         {
-            string outputFileName = "output.txt";
+            string outputFileName = "new" + inputFileName;
 
             try
             {
@@ -111,6 +113,7 @@ namespace DzFromTumakov
             CheckIfFormattable(testValue1);
             CheckIfFormattable(testValue2);
         }
+
 
         public static void CheckIfFormattable(object value)
         {
@@ -150,7 +153,9 @@ namespace DzFromTumakov
             string inputFile = "input.txt";
             string outputFile = "emails.txt";
 
-            if (!File.Exists(inputFile))
+            string inputFilePath = Path.Combine(Directory.GetCurrentDirectory(), inputFile);
+
+            if (!File.Exists(inputFilePath))
             {
                 Console.WriteLine("Файл с входными данными не найден.");
                 return;
@@ -181,22 +186,22 @@ namespace DzFromTumakov
             
         }
 
-        public static void SearchMail(ref string s)
+        public static void SearchMail(ref string email)
         {
-            if (string.IsNullOrWhiteSpace(s))
+            if (string.IsNullOrWhiteSpace(email))
             {
-                s = string.Empty;
+                email = string.Empty;
                 return;
             }
 
-            int hashIndex = s.IndexOf('#');
-            if (hashIndex != -1 && hashIndex + 1 < s.Length)
+            int hashIndex = email.IndexOf('#');
+            if (hashIndex != -1 && hashIndex + 1 < email.Length)
             {
-                s = s.Substring(hashIndex + 1).Trim();
+                email = email.Substring(hashIndex + 1).Trim();
             }
             else
             {
-                s = string.Empty; 
+                email = string.Empty; 
             }
         }
 
@@ -235,11 +240,11 @@ namespace DzFromTumakov
         }
         static void Main()
         {
-            Task1();
-            Task2();
-            Task3();
-            Task4();
-            Task5();
+            //Task1();
+            //Task2();
+            //Task3();
+            //Task4();
+            //Task5();
             Task6();
         }
     }
